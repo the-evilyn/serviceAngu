@@ -1,8 +1,9 @@
+<h2>C'est le composant Fils</h2>
 
-<div class="divFils">
-  <h1>composant fils</h1>
-  l'input dans fils
-  <input class="inputFils" [(ngModel)]="valeurFils">
-  <button class="btn" (click)="sendvaleur()">emitter</button>
-  la valeur depuis le parent : {{valeurParenth}}
+<input [(ngModel)]="valeurFils">
+<button (click)="envoyer()">Emitter</button>
+
+<h3>Data from service</h3>
+<div *ngFor="let item of servNom.getData()">
+  {{ item }}
 </div>

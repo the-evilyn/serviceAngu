@@ -1,24 +1,22 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ServNom } from '../serv-nom';
 
 @Component({
   selector: 'app-fils',
   standalone: true,
-  imports: [FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './fils.html',
-  styleUrls: ['./fils.scss'],
+  styleUrl: './fils.scss'
 })
 export class Fils {
- 
-  @Input() valeurParenth = '';
 
-  
   valeurFils = '';
 
+  constructor(public servNom: ServNom) {}
 
-  @Output() valeurFilsEvent = new EventEmitter<string>();
-
-  sendvaleur() {
-    this.valeurFilsEvent.emit(this.valeurFils);
+  envoyer() {
+    this.servNom.addData('item added from fils component');
   }
 }

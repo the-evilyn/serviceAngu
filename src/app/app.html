@@ -1,10 +1,13 @@
-<div class="divParent">
-  <h1>composant parent</h1>
-  l'input dans parent
-  <input class="inputPrent" [(ngModel)]="valeurParent">
-  <span>valeur depuis fils : {{valeurFils}}</span>
-  <app-fils
-    [valeurParenth]="valeurParent"
-    (valeurFilsEvent)="valeurdepuisFilsFn($event)"
-  ></app-fils>
+<h2>C'est le composant Parent</h2>
+
+<input [(ngModel)]="valeurParent">
+<p>Valeur depuis Fils :</p>
+
+<h3>Data from service</h3>
+<div *ngFor="let item of servNom.getData()">
+  {{ item }}
 </div>
+
+<hr>
+
+<app-fils></app-fils>

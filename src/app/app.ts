@@ -1,4 +1,5 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Fils } from './fils/fils';
 import { ServNom } from './serv-nom';
@@ -6,25 +7,16 @@ import { ServNom } from './serv-nom';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [FormsModule, Fils],
+  imports: [CommonModule, FormsModule, Fils],
   templateUrl: './app.html',
-  styleUrls: ['./app.scss']
+  styleUrl: './app.scss',
+  providers: [ServNom]   // Method 2
 })
 export class App {
-  protected readonly title = signal('projet1test');
-  
+
   valeurParent = '';
-  valeurFils = '';
 
-   constructor(public servNom: ServNom) {}
-  valeurdepuisFilsFn(event: any) {
-    this.valeurFils = event;
-    this.servNom.message = `Value from fils: ${event}`;
-
-    }
-
+  constructor(public servNom: ServNom) {
+    this.servNom.addData('item added from app component');
   }
-  
-
-
-   
+}

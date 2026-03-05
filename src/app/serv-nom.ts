@@ -1,10 +1,15 @@
 import { Injectable } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class ServNom {
-  message = 'Hello from ServNom!';  
-  
-  
+
+  data: string[] = ['item1 added from service'];
+
+  addData(item: string) {
+    this.data.push(item);
+  }
+
+  getData() {
+    return this.data;
+  }
 }
